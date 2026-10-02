@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Hệ thống Thi Trắc nghiệm TNTHPT 2025",
+  "description": "Ứng dụng thi trực tuyến theo cấu trúc đề thi Tốt nghiệp THPT 2025 của Bộ Giáo dục và Đào tạo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

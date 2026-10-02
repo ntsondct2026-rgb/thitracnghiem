@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-azota-blue: #4da3ff;
+  --color-azota-green: #28a745;
+  --color-azota-yellow: #ffc107;
+  --color-azota-red: #dc3545;
+  --color-azota-bg: #f5f6fa;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-azota-bg text-slate-800;
+  }
+}
+
+.exam-mode {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.question-card {
+  @apply bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-6 transition-all;
+}
+
+.question-card:hover {
+  @apply shadow-md border-azota-blue/30;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full hover:bg-azota-blue transition-colors;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Quill Editor Customization */
+.quill-editor-container .ql-toolbar {
+  @apply border-none bg-slate-50 p-2 flex flex-wrap gap-1 border-b border-slate-100!;
+}
+.quill-editor-container .ql-container {
+  @apply border-none min-h-[150px] text-base font-sans!;
+}
+.quill-editor-container .ql-editor {
+  @apply px-4 py-3 min-h-[150px];
+}
+.quill-editor-container .ql-editor.ql-blank::before {
+  @apply left-4 italic text-slate-400;
+}
+
+/* Question Content Styling (to render HTML correctly) */
+.q-content img {
+  @apply max-w-full h-auto rounded-lg my-3 inline-block;
+  max-height: 380px;
+  object-fit: contain;
+}
+.q-content p {
+  @apply mb-1.5 leading-normal inline;
+}
+.q-content p + p, .q-content div + p, .q-content p + div {
+  @apply block mt-2;
+}
+.q-content ul {
+  @apply list-disc pl-6 mb-3 mt-1 inline-block w-full;
+}
+.q-content ol {
+  @apply list-decimal pl-6 mb-3 mt-1 inline-block w-full;
+}
+.q-content blockquote {
+  @apply border-l-4 border-slate-300 pl-4 italic my-3 text-slate-500;
+}
+.q-content pre {
+  @apply bg-slate-100 p-3 rounded-lg font-mono text-xs overflow-x-auto my-3 block;
+}
+.q-content table {
+  @apply my-4 border-collapse break-words text-left w-full max-w-full overflow-x-auto block md:table;
+}
+.q-content table td, .q-content table th {
+  @apply border border-slate-300 p-2 text-xs md:text-sm;
+  vertical-align: middle;
+  min-width: 50px;
+}
+.q-content table th {
+  @apply bg-slate-100 font-bold text-slate-700;
+}
+.q-content table tr:nth-child(even) {
+  @apply bg-slate-50/60;
+}
+.katex-block-wrapper {
+  @apply py-2 overflow-x-auto w-full my-2 flex justify-center text-center;
+}
+
